@@ -1,0 +1,212 @@
+/* ------------------------------------- */
+/* HEADER                                */
+/* ------------------------------------- */
+
+.main-header {
+  display: flex;
+  flex-direction: column-reverse;
+  @media (max-width: 768px) {
+    & {
+      flex-direction: column-reverse;
+    }
+  }
+
+
+}
+
+#menu {
+  display: none;
+
+  &:checked + .nav-bar {
+    display: block;
+  }
+
+  &:checked ~ .search-bar .menu-toogle__label {
+    background-color: yellow;
+  }
+
+}
+
+/* ------------------------------------- */
+/* NAVBAR                                */
+/* ------------------------------------- */
+
+.nav-bar {
+  background-color: $blueDark1;
+  &__nav-list {
+    display: flex;
+    list-style-type: none;
+    justify-content: center;
+    // align-items: center;
+    gap: 5px;
+
+    @media (max-width: 768px) {
+      & {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  }
+
+  &__nav-item {
+    text-align: center;
+    // background-color: $dark2;
+    border-left: 1px $light1 solid ;
+    border-right: 1px $light1 solid ;
+    width: 15%;
+
+    @media (max-width: 768px) {
+      & {
+        width: 60%;
+      }
+    }
+  }
+
+  &__nav-link {
+    display: block;
+    background-color: rgba($darkContrast,0.5);
+    color: $light2;
+    padding: 1em 2em;
+    text-decoration: none;
+  }
+
+  &__nav-link:hover {
+    display: block;
+    background-color: rgba($lightContrast,0.5);
+    color: $light1;
+    padding: 1em 2em;
+    text-decoration: none;
+  }
+
+  @media (max-width: 768px) {
+    & {
+      display: none;
+    }
+  }
+}
+
+/* ------------------------------------- */
+/* SEARCH BAR                            */
+/* ------------------------------------- */
+
+.search-bar {
+  background-color: $blueDark2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 10em;
+  
+  &__form-container {
+    padding: 1em;
+  }
+
+  &__logo-container {
+    background-color: $lightContrast;
+    font-family: 'Maven Pro';
+    font-size: 2em;
+    border-radius: 10%;
+    border-left: 0.5em $bluelight2 solid;
+    border-right: 0.5em $bluelight2 solid;
+    border-top: 0.3em rgba($color: $bluelight2, $alpha: 0.2) solid;
+    border-bottom: 0.3em rgba($color: $bluelight2, $alpha: 0.2) solid;
+  }
+
+  &__form-container {
+    position: sticky;
+    top: 0;
+    background-color: $light1;
+    display: flex;
+    flex-basis: 50%;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 50px;
+    border: 1px $dark2 solid;
+  }
+
+  &__form-label {
+    background-color: transparent;
+    @media (max-width: 768px) {
+      & { 
+        display: none;
+      }
+    }
+  }
+
+  &__form-search {
+    background-color: transparent;
+    border: none;
+    width: 80%;
+    height: 100%;
+
+    &:focus {
+      background-color: rgba($color: $bluelight1, $alpha: 0.4);
+      border-bottom: 1px $blueDark2 solid;
+      outline: none;
+    }
+  }
+
+  &__form-submit {
+    background-color: transparent;
+    font-size: 1.5em;
+    cursor: pointer;
+    border: none;
+  }
+
+  &__carrito-container {
+    flex: 0 0 3em; /* shorthand (grow shrink basis */
+    background-color: transparent;
+    color: $light1;
+    cursor: pointer;
+    margin: 1em;
+  }
+}
+
+/* ------------------------------------- */
+/* MENU TOOGLE                           */
+/* ------------------------------------- */
+
+.menu-toggle {
+  display: none;
+  flex: 0 0 3em;
+  position: relative;
+  margin: 0.5em;
+
+  &__label {
+    display: block;
+    background-color: rgba($color: $bluelight2, $alpha: 0.3);
+    padding: 2em;
+    cursor: pointer;
+    border-radius: 10px;
+  }
+
+  &__top-bread,
+  &__meat,
+  &__bottom-bread {
+    display: block;
+    background-color: $lightContrast;
+    height: .2em;
+    position: absolute;
+    border-radius: 10px;
+    left: .5em;
+    right: .5em;
+  }
+
+  &__top-bread {
+    top: .8em;
+  }
+
+  &__meat {
+    top: 50%;
+    margin-top: -.1em;
+  }
+
+  &__bottom-bread {
+    bottom: .8em;
+  }
+
+  @media (max-width: 768px) {
+    & { 
+      display: block;
+    }
+  }
+}
